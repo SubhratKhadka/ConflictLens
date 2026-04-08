@@ -36,3 +36,5 @@ public class ApplicationDbContext(IConfiguration configuration) : DbContext
     public DbSet<Event> Events { get; set; }
     public DbSet<Theory> Theories { get; set; }
 }
+
+// TODO: python api for embedding of "BAAI/bge-m3"

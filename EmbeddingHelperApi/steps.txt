@@ -1,0 +1,4 @@
+pip install fastapi uvicorn sentence-transformers
+
+to run
+python -m uvicorn embedderApi:app --reload
