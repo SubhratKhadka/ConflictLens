@@ -11,6 +11,8 @@ public static class ServiceExtensions
         services.AddScoped<IEventService, EventService>();
         services.AddScoped<IUserService, UserService>();
 
+        services.AddScoped<IJwtService, JwtService>();
+
         return services;
     }
 }

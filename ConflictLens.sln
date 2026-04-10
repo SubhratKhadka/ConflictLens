@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lafda-server", "Lafda-server\Lafda-server.csproj", "{168605D6-835B-96F1-3AEF-73CF05F4D562}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{168605D6-835B-96F1-3AEF-73CF05F4D562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{168605D6-835B-96F1-3AEF-73CF05F4D562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{168605D6-835B-96F1-3AEF-73CF05F4D562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{168605D6-835B-96F1-3AEF-73CF05F4D562}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B3CE1FE-6EDB-4C09-9E9C-3EDD6522A5B3}
+	EndGlobalSection
+EndGlobal
