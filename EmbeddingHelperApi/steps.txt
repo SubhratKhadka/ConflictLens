@@ -2,3 +2,13 @@ pip install fastapi uvicorn sentence-transformers
 
 to run
 python -m uvicorn embedderApi:app --reload
+
+
+// embedd step
+Title: Bomb blast in Kabul
+Description: Major explosion in city center
+Actor1: Taliban
+Actor2: Civilians
+EventType: Explosions/Remote violence
+SubEventType: Suicide bomb
+Date: 2026-01-01

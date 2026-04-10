@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer
 
 app = FastAPI()
 
-# Load model ONCE (very important)
+# Load model ONCE (very imp)
 model = SentenceTransformer("BAAI/bge-m3")
 
 # @app.get("/")
