@@ -2,34 +2,26 @@ using Lafda.Dtos;
 using Lafda.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace Lafda.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize] // 🔐 requires login (JWT cookie)
-public class EventController : ControllerBase
+[Authorize] // 🔐 require login for all endpoints (optional but recommended)
+public class MainEventController : ControllerBase
 {
-    private readonly IEventService _eventService;
+    private readonly IMainEventService _mainEventService;
 
-    public EventController(IEventService eventService)
+    public MainEventController(IMainEventService mainEventService)
     {
-        _eventService = eventService;
+        _mainEventService = mainEventService;
     }
 
-    // ➕ CREATE EVENT
+    // ➕ CREATE MAIN EVENT
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] CreateEventDto dto)
+    public async Task<IActionResult> Create([FromBody] CreateMainEventDto dto)
     {
-        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-        if (userIdClaim == null)
-            return Unauthorized("User not found in token");
-
-        int userId = int.Parse(userIdClaim);
-
-        var result = await _eventService.CreateEventAsync(dto, userId);
+        var result = await _mainEventService.CreateAsync(dto);
 
         if (!result.Success)
             return BadRequest(result.Message);
@@ -41,7 +33,7 @@ public class EventController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
-        var result = await _eventService.GetByIdAsync(id);
+        var result = await _mainEventService.GetByIdAsync(id);
 
         if (!result.Success)
             return NotFound(result.Message);
@@ -53,7 +45,7 @@ public class EventController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var result = await _eventService.GetAllAsync();
+        var result = await _mainEventService.GetAllAsync();
         return Ok(result);
     }
 
@@ -61,7 +53,7 @@ public class EventController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var result = await _eventService.DeleteAsync(id);
+        var result = await _mainEventService.DeleteAsync(id);
 
         if (!result.Success)
             return NotFound(result.Message);

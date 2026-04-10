@@ -10,6 +10,8 @@ public static class ServiceExtensions
         services.AddScoped<IBotService, BotService>();
         services.AddScoped<IEventService, EventService>();
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IMainEventService, MainEventService>();
+        services.AddScoped<ITheoryService, TheoryService>();
 
         services.AddScoped<IJwtService, JwtService>();
 

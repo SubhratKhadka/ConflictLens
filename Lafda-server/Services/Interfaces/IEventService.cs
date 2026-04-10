@@ -1,6 +1,11 @@
- namespace Lafda.Services.Interfaces;
+using Lafda.Dtos;
 
- public interface IEventService
+namespace Lafda.Services.Interfaces;
+
+public interface IEventService
 {
-    
+    Task<ApiResponse<EventResponseDto>> CreateEventAsync(CreateEventDto dto, int userId);
+    Task<ApiResponse<EventResponseDto>> GetByIdAsync(int id);
+    Task<ApiResponse<List<EventResponseDto>>> GetAllAsync();
+    Task<ApiResponse<string>> DeleteAsync(int id);
 }

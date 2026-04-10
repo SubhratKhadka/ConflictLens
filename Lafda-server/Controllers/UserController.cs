@@ -1,5 +1,6 @@
 using Lafda.Dtos;
 using Lafda.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lafda.Controllers;
@@ -47,6 +48,7 @@ public class UserController : ControllerBase
         });
     }
 
+    [Authorize]
     [HttpPost("logout")]
     public IActionResult Logout()
     {

@@ -12,3 +12,5 @@ Actor2: Civilians
 EventType: Explosions/Remote violence
 SubEventType: Suicide bomb
 Date: 2026-01-01
+
+Bomb blast in Kabul. Major explosion in city center. It involved Taliban and Civilians. The event type was Explosions/Remote violence with subtype Suicide bomb. It occurred on 2026-01-01.

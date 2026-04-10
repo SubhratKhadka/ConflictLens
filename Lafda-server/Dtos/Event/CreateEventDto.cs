@@ -4,7 +4,7 @@ using Lafda.Enums;
 
 public class CreateEventDto
 {
-    public DisorderTypeEnum DisorderType { get; set; }
+    public string DisorderType { get; set; } = "Political Violence";
 
     public string EventType { get; set; }
     public string SubEventType { get; set; }
@@ -20,6 +20,7 @@ public class CreateEventDto
     public decimal Latitute { get; set; }
 
     public DateOnly EventDate { get; set; }
+    public PostStatusEnum EventStatus { get; set; } = PostStatusEnum.Waiting;
 
     public int MainEventId { get; set; }
 }

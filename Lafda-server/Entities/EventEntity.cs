@@ -8,7 +8,8 @@ public class Event : BaseEntity
 {
     private int _humanCasualties;
 
-    public DisorderTypeEnum DisorderType { get; set; }
+    [RegularExpression("Political Violence")]
+    public string DisorderType { get; set; } = "Political Violence";
 
     [RegularExpression("Battles|Explosions/Remote violence")]
     public required string EventType { get; set; }
@@ -42,6 +43,7 @@ public class Event : BaseEntity
     public int MainEventId { get; set; }
     public MainEvent MainEvent { get; set; } = null!;
 
+    public PostStatusEnum EventStatus { get; set; } = PostStatusEnum.Waiting;
     // extra
     public Vector Embedding { get; set; } = default!;
 }

@@ -1,8 +1,24 @@
+using System.Text.Json.Serialization;
 using Lafda;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+// for enum -> string in json response with addition of controller
+// builder.Services.AddControllers()
+//     .AddJsonOptions(options =>
+//     {
+//         options.JsonSerializerOptions.Converters.Add(
+//             new JsonStringEnumConverter()
+//         );
+//     });
+// ;
+builder.Services.AddHttpClient();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
 
 // di injection
 builder.Services.ConfigureExtensions(builder.Configuration);
@@ -10,6 +26,7 @@ builder.Services.ConfigureExtensions(builder.Configuration);
 var app = builder.Build();
 
 app.UseHttpsRedirection();
+
 
 // auths middlewares
 app.UseAuthentication();   // validates JWT

@@ -5,7 +5,7 @@ public class EventResponseDto
 {
     public int Id { get; set; }
 
-    public DisorderTypeEnum DisorderType { get; set; }
+    public string DisorderType { get; set; } = "Political Violence";
 
     public string EventType { get; set; }
     public string SubEventType { get; set; }
@@ -29,6 +29,6 @@ public class EventResponseDto
     public int MainEventId { get; set; }
     public string MainEventTitle { get; set; }
 
-    public DateTime CreatedAt { get; set; }
-    public DateTime UpdatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.Now.ToUniversalTime();
+    public DateTime UpdatedAt { get; set; } = DateTime.Now.ToUniversalTime();
 }

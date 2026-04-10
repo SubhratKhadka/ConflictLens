@@ -64,7 +64,7 @@ public class UserService : IUserService
             return ApiResponse<LoginResponseDto>.Fail("Invalid credentials");
 
         // JWT token
-        var token = _jwtService.GenerateToken(user.Id, user.Email);
+        var token = _jwtService.GenerateToken(user.Id, user.Email, user.Role.ToString());
 
         var response = new LoginResponseDto
         {
