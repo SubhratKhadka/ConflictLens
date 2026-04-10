@@ -25,7 +25,36 @@ public class UserController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto dto)
     {
-        var user = await _userService.LoginAsync(dto);
-        return Ok(user);
+        var result = await _userService.LoginAsync(dto);
+
+        if (!result.Success)
+            return Unauthorized(new { result.Message });
+
+        var token = result.Data.Token;
+
+        Response.Cookies.Append("access_token", token, new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = false,
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTime.UtcNow.AddMinutes(60)
+        });
+
+        return Ok(new
+        {
+            result.Data.UserId,
+            result.Data.Email
+        });
+    }
+
+    [HttpPost("logout")]
+    public IActionResult Logout()
+    {
+        Response.Cookies.Delete("access_token");
+
+        return Ok(new
+        {
+            message = "Logged out successfully"
+        });
     }
 }

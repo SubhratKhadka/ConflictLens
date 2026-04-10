@@ -76,6 +76,7 @@ public class UserService : IUserService
         return ApiResponse<LoginResponseDto>.Ok(response, "Login successful");
     }
 
+
     // hashing
     private string HashPassword(string password)
     {

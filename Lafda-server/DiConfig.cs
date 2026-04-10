@@ -9,6 +9,7 @@ public static class DiConfigs
         IConfiguration configuration
     )
     {
+        services.AddJwtAuth(configuration);
         services.AddInfrastructures(configuration);
         services.AddApplication();
         services.AddPersistence();

@@ -7,4 +7,5 @@ public interface IUserService
     Task<ApiResponse<UserResponseDto>> CreateUserAsync(CreateUserDto dto);
 
     Task<ApiResponse<LoginResponseDto>> LoginAsync(LoginDto dto);
+    // Task<ApiResponse<string>> LogoutAsync();
 }
